@@ -19,7 +19,6 @@ function capitalize(string) {
     for (let i = 0; i < string.length; i++) {
       chars.push(string.charCodeAt(i));
     }
-    console.log(chars);
     chars[0] -= 32;
     return String.fromCharCode(...chars);
   }
