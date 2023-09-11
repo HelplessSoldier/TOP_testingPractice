@@ -1,10 +1,10 @@
-function _shiftChars(charcodes, range, shiftFactor) {
-  for (let i = 0; i < charcodes.length; i++) {
-    if (charcodes[i] >= range[0] && charcodes[i] <= range[1]) {
-      charcodes[i] += shiftFactor;
+function _shiftChars(charCodes, range, shiftFactor) {
+  for (let i = 0; i < charCodes.length; i++) {
+    if (charCodes[i] >= range[0] && charCodes[i] <= range[1]) {
+      charCodes[i] += shiftFactor;
       // overshot, need to wrap
-      if (charcodes[i] > range[1]) {
-        charcodes[i] = range[0] + (charcodes[i] - range[1]) - 1;
+      if (charCodes[i] > range[1]) {
+        charCodes[i] = range[0] + (charCodes[i] - range[1]) - 1;
       }
     }
   }
@@ -14,16 +14,16 @@ function ceasarCipher(string, shiftFactor) {
   const lowercaseRange = [97, 122];
   const uppercaseRange = [65, 90];
 
-  let charcodes = [];
+  let charCodes = [];
   for (let char of string) {
-    charcodes.push(char.charCodeAt(0));
+    charCodes.push(char.charCodeAt(0));
   }
 
-  _shiftChars(charcodes, lowercaseRange, shiftFactor);
-  _shiftChars(charcodes, uppercaseRange, shiftFactor);
+  _shiftChars(charCodes, lowercaseRange, shiftFactor);
+  _shiftChars(charCodes, uppercaseRange, shiftFactor);
 
   let res = "";
-  res += String.fromCharCode(...charcodes);
+  res += String.fromCharCode(...charCodes);
   return res;
 }
 
